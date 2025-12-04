@@ -34,8 +34,6 @@ exports.getMyAssignments = async (req, res) => {
 exports.getAssignmentDetails = async (req, res) => {
     try {
         const assignmentId = req.params.assignmentId;
-
-        // Get assignment details
         const assignment = await Assignment.getById(assignmentId);
 
         if (!assignment) {
