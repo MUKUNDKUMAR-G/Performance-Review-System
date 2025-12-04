@@ -103,11 +103,42 @@ const assignmentValidation = [
         .withMessage('Reviewer ID must be a number')
 ];
 
+const feedbackValidation = [
+    body('assignment_id')
+        .notEmpty()
+        .withMessage('Assignment ID is required')
+        .isInt()
+        .withMessage('Assignment ID must be a number'),
+    body('answers')
+        .notEmpty()
+        .withMessage('Feedback answers are required')
+        .isObject()
+        .withMessage('Answers must be an object'),
+    body('answers.strengths')
+        .notEmpty()
+        .withMessage('Strengths field is required')
+        .trim()
+        .isLength({ min: 10 })
+        .withMessage('Strengths must be at least 10 characters'),
+    body('answers.areas_for_improvement')
+        .notEmpty()
+        .withMessage('Areas for improvement field is required')
+        .trim()
+        .isLength({ min: 10 })
+        .withMessage('Areas for improvement must be at least 10 characters'),
+    body('answers.overall_rating')
+        .notEmpty()
+        .withMessage('Overall rating is required')
+        .isInt({ min: 1, max: 5 })
+        .withMessage('Rating must be between 1 and 5')
+];
+
 module.exports = {
     registerValidation,
     loginValidation,
     userUpdateValidation,
     reviewValidation,
     reviewUpdateValidation,
-    assignmentValidation
+    assignmentValidation,
+    feedbackValidation
 };

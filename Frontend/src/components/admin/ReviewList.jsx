@@ -110,6 +110,12 @@ const ReviewList = () => {
                                             Assign Reviewers
                                         </Link>
                                         <Link 
+                                            to={`/admin/reviews/${review.id}/feedback`}
+                                            className="btn-view-feedback"
+                                        >
+                                            View Feedback
+                                        </Link>
+                                        <Link 
                                             to={`/admin/reviews/edit/${review.id}`}
                                             className="btn-edit"
                                         >

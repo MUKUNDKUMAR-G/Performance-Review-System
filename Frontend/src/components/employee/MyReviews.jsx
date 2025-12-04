@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import assignmentService from '../../services/assignmentService';
+import { Link, useLocation } from 'react-router-dom';
+import feedbackService from '../../services/feedbackService';
 import '../../styles/Employee.css';
 
 const MyReviews = () => {
+    const location = useLocation();
     const [assignments, setAssignments] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
     useEffect(() => {
         fetchAssignments();
-    }, []);
+
+        if (location.state?.message) {
+            setSuccessMessage(location.state.message);
+            window.history.replaceState({}, document.title);
+            setTimeout(() => setSuccessMessage(''), 5000);
+        }
+    }, [location]);
 
     const fetchAssignments = async () => {
         try {
-            const response = await assignmentService.getMyAssignments();
+            const response = await feedbackService.getMyAssignments();
             setAssignments(response.data);
         } catch (err) {
             setError('Failed to fetch assignments');
@@ -23,7 +31,9 @@ const MyReviews = () => {
         }
     };
 
-    const pendingAssignments = assignments.filter(a => a.status === 'pending' && a.review_status === 'active');
+    const pendingAssignments = assignments.filter(
+        a => a.status === 'pending' && a.review_status === 'active'
+    );
     const completedAssignments = assignments.filter(a => a.status === 'submitted');
 
     if (loading) {
@@ -35,6 +45,7 @@ const MyReviews = () => {
             <h1>My Performance Reviews</h1>
 
             {error && <div className="error-message">{error}</div>}
+            {successMessage && <div className="success-message">{successMessage}</div>}
 
             <div className="reviews-section">
                 <h2>Pending Feedback ({pendingAssignments.length})</h2>
@@ -86,9 +97,9 @@ const MyReviews = () => {
                                     <p>{assignment.review_period}</p>
                                 </div>
                                 <div className="completed-review-meta">
-                                    <span className="status-badge status-completed">Completed</span>
+                                    <span className="status-badge status-completed">✓ Completed</span>
                                     <span className="completion-date">
-                                        Submitted on: {new Date(assignment.created_at).toLocaleDateString()}
+                                        Assigned: {new Date(assignment.created_at).toLocaleDateString()}
                                     </span>
                                 </div>
                             </div>

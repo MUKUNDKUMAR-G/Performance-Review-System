@@ -14,6 +14,8 @@ import ReviewList from './components/admin/ReviewList';
 import ReviewForm from './components/admin/ReviewForm';
 import AssignReviewers from './components/admin/AssignReviewers';
 import MyReviews from './components/employee/MyReviews';
+import SubmitFeedback from './components/employee/Submitfeedback';
+import ViewFeedback from './components/admin/ViewFeedback';
 
 import './styles/App.css';
 import useAuth from './hooks/useAuth';
@@ -131,22 +133,38 @@ const App = () =>{
                                 </ProtectedRoute>
                             }
                         />
-                    <Route
-                        path="/employee/dashboard"
-                        element={
-                            <ProtectedRoute requiredRole="employee">
-                                <EmployeeDashboard />
-                            </ProtectedRoute>
-                        }
-                    />
-                    <Route
-                        path="/employee/reviews"
-                        element={
-                            <ProtectedRoute requiredRole="employee">
-                                <MyReviews />
-                            </ProtectedRoute>
-                        }
-                    />
+                        <Route
+                            path="/admin/reviews/:id/feedback"
+                            element={
+                                <ProtectedRoute requiredRole="admin">
+                                    <ViewFeedback />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/employee/dashboard"
+                            element={
+                                <ProtectedRoute requiredRole="employee">
+                                    <EmployeeDashboard />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/employee/reviews"
+                            element={
+                                <ProtectedRoute requiredRole="employee">
+                                    <MyReviews />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/employee/feedback/:assignmentId"
+                            element={
+                                <ProtectedRoute requiredRole="employee">
+                                    <SubmitFeedback />
+                                </ProtectedRoute>
+                            }
+                        />
                     <Route path="/" element={<Home />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>

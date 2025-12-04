@@ -570,3 +570,117 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+.view-feedback-container {
+    max-width: 1200px;
+}
+
+.review-summary {
+    margin-top: 10px;
+}
+
+.review-summary p {
+    display: inline-block;
+    margin-right: 20px;
+    color: #7f8c8d;
+}
+
+.review-summary strong {
+    color: #2c3e50;
+}
+
+.feedback-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.feedback-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feedback-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.feedback-card-header {
+    background: #f8f9fa;
+    padding: 20px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.feedback-card-header h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.feedback-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.reviewer-name {
+    font-weight: 500;
+}
+
+.feedback-card-body {
+    padding: 25px;
+}
+
+.feedback-section {
+    margin-bottom: 25px;
+}
+
+.feedback-section:last-child {
+    margin-bottom: 0;
+}
+
+.feedback-section h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.feedback-section p {
+    color: #7f8c8d;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.rating-display {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.rating-stars {
+    font-size: 24px;
+    color: #f39c12;
+}
+
+.rating-text {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.btn-view-feedback {
+    background-color: #16a085;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.btn-view-feedback:hover {
+    background-color: #138d75;
+}
