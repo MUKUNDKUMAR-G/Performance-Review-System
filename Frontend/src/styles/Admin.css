@@ -338,3 +338,235 @@
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+.review-list-container {
+    max-width: 1400px;
+}
+
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.review-table thead {
+    background-color: #34495e;
+    color: white;
+}
+
+.review-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.review-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ecf0f1;
+    font-size: 14px;
+}
+
+.employee-name {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.employee-email {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.status-draft {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-active {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.btn-assign {
+    background-color: #9b59b6;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.btn-assign:hover {
+    background-color: #8e44ad;
+}
+
+.review-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-help {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+.assign-reviewers-container {
+    max-width: 1200px;
+}
+
+.review-info {
+    margin-top: 10px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.review-info strong {
+    color: #2c3e50;
+    margin-right: 5px;
+    margin-left: 15px;
+}
+
+.review-info strong:first-child {
+    margin-left: 0;
+}
+
+.stat-card-small {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-card-small h3 {
+    color: #7f8c8d;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.assign-form-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.assign-form-card h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.form-group-inline {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.reviewer-select {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.assigned-reviewers-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.assigned-reviewers-card h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.reviewers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reviewer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ecf0f1;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.reviewer-item:hover {
+    background-color: #f8f9fa;
+}
+
+.reviewer-info {
+    flex: 1;
+}
+
+.reviewer-name {
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.reviewer-email {
+    font-size: 13px;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.reviewer-meta {
+    font-size: 12px;
+    color: #95a5a6;
+}
+
+.reviewer-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-remove {
+    background-color: #e74c3c;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-remove:hover:not(:disabled) {
+    background-color: #c0392b;
+}
+
+.btn-remove:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

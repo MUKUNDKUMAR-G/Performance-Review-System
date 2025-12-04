@@ -56,8 +56,58 @@ const userUpdateValidation = [
         .withMessage('Role must be either admin or employee')
 ];
 
+const reviewValidation = [
+    body('employee_id')
+        .notEmpty()
+        .withMessage('Employee ID is required')
+        .isInt()
+        .withMessage('Employee ID must be a number'),
+    body('review_period')
+        .notEmpty()
+        .withMessage('Review period is required')
+        .trim()
+        .isLength({ min: 3 })
+        .withMessage('Review period must be at least 3 characters'),
+    body('status')
+        .optional()
+        .isIn(['draft', 'active', 'completed'])
+        .withMessage('Status must be draft, active, or completed')
+];
+
+const reviewUpdateValidation = [
+    body('employee_id')
+        .optional()
+        .isInt()
+        .withMessage('Employee ID must be a number'),
+    body('review_period')
+        .optional()
+        .trim()
+        .isLength({ min: 3 })
+        .withMessage('Review period must be at least 3 characters'),
+    body('status')
+        .optional()
+        .isIn(['draft', 'active', 'completed'])
+        .withMessage('Status must be draft, active, or completed')
+];
+
+const assignmentValidation = [
+    body('review_id')
+        .notEmpty()
+        .withMessage('Review ID is required')
+        .isInt()
+        .withMessage('Review ID must be a number'),
+    body('reviewer_id')
+        .notEmpty()
+        .withMessage('Reviewer ID is required')
+        .isInt()
+        .withMessage('Reviewer ID must be a number')
+];
+
 module.exports = {
     registerValidation,
     loginValidation,
-    userUpdateValidation
+    userUpdateValidation,
+    reviewValidation,
+    reviewUpdateValidation,
+    assignmentValidation
 };

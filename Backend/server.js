@@ -10,6 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/users', require('./routes/users'));
+app.use('/api/reviews', require('./routes/reviews'));
+app.use('/api/assignments', require('./routes/assignments'));
 
 app.get('/api/health', (req, res) => {
     res.json({ 
@@ -30,8 +32,7 @@ app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({
         success: false,
-        message: 'Something went wrong!',
-        error: process.env.NODE_ENV === 'development' ? err.message : undefined
+        message: 'Something went wrong!'
     });
 });
 

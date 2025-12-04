@@ -10,6 +10,10 @@ import AdminDashboard from './components/admin/AdminDashboard';
 import EmployeeList from './components/admin/EmployeeList';
 import EmployeeForm from './components/admin/EmployeeForm';
 import EmployeeDashboard from './components/employee/Dashboard';
+import ReviewList from './components/admin/ReviewList';
+import ReviewForm from './components/admin/ReviewForm';
+import AssignReviewers from './components/admin/AssignReviewers';
+import MyReviews from './components/employee/MyReviews';
 
 import './styles/App.css';
 import useAuth from './hooks/useAuth';
@@ -63,8 +67,6 @@ const App = () =>{
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/unauthorized" element={<Unauthorized />} />
-
-                        {/* Admin routes */}
                         <Route
                             path="/admin/dashboard"
                             element={
@@ -97,12 +99,51 @@ const App = () =>{
                                 </ProtectedRoute>
                             }
                         />
-                                  
+                        <Route
+                            path="/admin/reviews"
+                            element={
+                                <ProtectedRoute requiredRole="admin">
+                                    <ReviewList />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/admin/reviews/new"
+                            element={
+                                <ProtectedRoute requiredRole="admin">
+                                    <ReviewForm />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/admin/reviews/edit/:id"
+                            element={
+                                <ProtectedRoute requiredRole="admin">
+                                    <ReviewForm />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/admin/reviews/:id/assign"
+                            element={
+                                <ProtectedRoute requiredRole="admin">
+                                    <AssignReviewers />
+                                </ProtectedRoute>
+                            }
+                        />
                     <Route
                         path="/employee/dashboard"
                         element={
                             <ProtectedRoute requiredRole="employee">
                                 <EmployeeDashboard />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="/employee/reviews"
+                        element={
+                            <ProtectedRoute requiredRole="employee">
+                                <MyReviews />
                             </ProtectedRoute>
                         }
                     />
